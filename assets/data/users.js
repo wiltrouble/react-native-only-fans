@@ -7,7 +7,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
     name: 'Elon',
     handle: 'elon',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 0,
   },
   {
@@ -18,7 +18,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg',
     name: 'Jeff',
     handle: 'jeff',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 4.99,
   },
   {
@@ -29,7 +29,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/biahaze.jpg',
     name: 'Biahaze',
     handle: 'biahaze',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 2.99,
   },
   {
@@ -40,7 +40,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/elon.png',
     name: 'Elon',
     handle: 'elon2',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 1.99,
   },
   {
@@ -51,7 +51,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/graham.jpg',
     name: 'Graham',
     handle: 'graham',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 0,
   },
   {
@@ -62,7 +62,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/jeff.jpeg',
     name: 'Jeff',
     handle: 'jeff2',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 3.99,
   },
   {
@@ -73,7 +73,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim.jpg',
     name: 'Vadim',
     handle: 'vadim',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 1.99,
   },
   {
@@ -84,7 +84,7 @@ export default [
       'https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/vadim1.JPG',
     name: 'Vadim',
     handle: 'vadim2',
-    bio: 'hello',
+    bio: 'Include your email address, phone number, and any other relevant contact information. Be sure to keep this section up to date so potential connections can easily get in touch with you.',
     subscriptionPrice: 0,
   },
 ];
