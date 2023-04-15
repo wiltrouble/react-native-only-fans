@@ -1,29 +1,19 @@
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  ImageBackground,
-  Image,
-  Pressable,
-} from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
 import { useRouter, useSearchParams } from "expo-router";
-import {
-  Ionicons,
-  MaterialCommunityIcons,
-  FontAwesome,
-} from "@expo/vector-icons";
 
 import users from "../../assets/data/users";
+import posts from "../../assets/data/posts";
 import UserProfileHeader from "../../src/components/UserProfileHeader";
+import Posts from "../../src/components/Posts";
+import { FlatList } from "react-native-gesture-handler";
+import { FontAwesome } from "@expo/vector-icons";
 
 const ProfilePage = () => {
-  const router = useRouter();
-  const { id } = useSearchParams();
-
   const [isSubscribed, setIsSubscribed] = useState(false);
 
+  const router = useRouter();
+  const { id } = useSearchParams();
   const user = users.find((u) => u.id === id);
 
   if (!user) {
@@ -35,15 +25,57 @@ const ProfilePage = () => {
       </SafeAreaView>
     );
   }
+
+  if (!isSubscribed) {
+    return (
+      <View>
+        <UserProfileHeader
+          user={user}
+          isSubscribed={isSubscribed}
+          setIsSubscribed={setIsSubscribed}
+        />
+        <View
+          style={{
+            backgroundColor: "gainsboro",
+            alignItems: "center",
+            padding: 20,
+          }}
+        >
+          <FontAwesome name="lock" size={50} color="gray" />
+          <Text
+            style={{
+              backgroundColor: "royalblue",
+              padding: 15,
+              height: 50,
+              borderRadius: 25,
+              overflow: "hidden",
+              color: 'white',
+              fontWeight: '500'
+            }}
+          >
+            Subscribe to see user's posts
+          </Text>
+        </View>
+      </View>
+    );
+  }
   return (
     <View>
-      <UserProfileHeader user={user}/>
+      <FlatList
+        data={posts}
+        renderItem={({ item }) => <Posts post={item} />}
+        ListHeaderComponent={() => (
+          <UserProfileHeader
+            user={user}
+            isSubscribed={isSubscribed}
+            setIsSubscribed={setIsSubscribed}
+          />
+        )}
+      />
     </View>
   );
 };
 
 export default ProfilePage;
 
-const styles = StyleSheet.create({
-
-});
+const styles = StyleSheet.create({});

@@ -17,10 +17,8 @@ import {
 
 import users from "../../assets/data/users";
 
-const UserProfileHeader = ({ user }) => {
+const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed}) => {
   const router = useRouter();
-
-  const [isSubscribed, setIsSubscribed] = useState(false);
 
   if (!user) {
     return (
