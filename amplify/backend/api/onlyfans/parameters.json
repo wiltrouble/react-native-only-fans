@@ -1,0 +1,5 @@
+{
+  "AppSyncApiName": "onlyfans",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false
+}
