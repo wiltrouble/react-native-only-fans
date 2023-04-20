@@ -11,15 +11,22 @@ import React, { useState } from "react";
 import { EvilIcons, Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
+import { DataStore } from "aws-amplify";
+import { Post } from "../src/models";
+import { useAuthenticator } from "@aws-amplify/ui-react-native";
 
 const newPost = () => {
   const [text, setText] = useState("");
   const [image, setImage] = useState("");
 
+  const { user } = useAuthenticator();
+
   const router = useRouter();
 
-  const onPost = () => {
-    console.warn("Post");
+  const onPost = async () => {
+    await DataStore.save(
+      new Post({ text, likes: 0, userID: '51ab0958-d958-4624-b446-6cd83859d1c7' })
+    );
     setText("");
   };
 
@@ -41,7 +48,9 @@ const newPost = () => {
 
   return (
     <SafeAreaView style={{ margin: 10 }}>
-      <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 20,}}>
+      <View
+        style={{ flexDirection: "row", alignItems: "center", marginBottom: 20 }}
+      >
         <Ionicons
           name="arrow-back"
           size={24}
@@ -49,7 +58,7 @@ const newPost = () => {
           onPress={() => router.back()}
           style={{ marginRight: 10 }}
         />
-        <Text style={{fontWeight: '500', fontSize: 20}}>New post</Text>
+        <Text style={{ fontWeight: "500", fontSize: 20 }}>New post</Text>
       </View>
       <TextInput
         placeholder="Compose new post..."

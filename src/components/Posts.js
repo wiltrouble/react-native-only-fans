@@ -1,18 +1,28 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AntDesign, Feather } from "@expo/vector-icons";
+import { DataStore } from 'aws-amplify'
+import { User } from "../models";
 
 const Posts = ({ post }) => {
+
+  const [user, setUser] = useState()
+
+  useEffect(() => {
+    DataStore.query(User, post.userID).then(setUser)
+  }, [])
+  
+
   return (
     <View>
       <View style={{ flexDirection: "row", alignItems: "center", padding: 5 }}>
-        <Image source={{ uri: post.User.avatar }} style={styles.avatar} />
+        <Image source={{ uri: user?.avatar }} style={styles.avatar} />
         <View>
           <Text style={{ fontWeight: "500", fontSize: 16, marginBottom: 3 }}>
-            {post.User.name}
+            {user?.name}
           </Text>
-          <Text>@{post.User.handle}</Text>
+          <Text>@{post.user?.handle}</Text>
         </View>
         <View
           style={{
@@ -26,10 +36,12 @@ const Posts = ({ post }) => {
         </View>
       </View>
       <Text style={{ margin: 5, lineHeight: 18 }}>{post.text}</Text>
-      <Image
-        source={{ uri: post.image }}
-        style={{ width: "100%", aspectRatio: 1 }}
-      />
+      {post.image && (
+        <Image
+          source={{ uri: post.image }}
+          style={{ width: "100%", aspectRatio: 1 }}
+        />
+      )}
       <View style={{ margin: 10, flexDirection: "row" }}>
         <AntDesign
           name="heart"

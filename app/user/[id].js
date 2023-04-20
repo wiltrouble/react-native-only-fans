@@ -9,17 +9,20 @@ import Posts from "../../src/components/Posts";
 import { FlatList } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
 import { DataStore } from "aws-amplify";
-import { User } from '../../src/models'
+import { Post as PostModel, User } from '../../src/models'
 
 const ProfilePage = () => {
-  const [isSubscribed, setIsSubscribed] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(true);
   const [user, setUser] = useState([])
+
+  const [posts, setPosts] = useState([])
 
   const router = useRouter();
   const { id } = useSearchParams();
   
   useEffect(() => {
     DataStore.query(User, id).then(setUser)
+    DataStore.query(PostModel, (post) => post.userID.eq(id)).then(setPosts)
   }, [id])
   
   // const user = users.find((u) => u.id === id);

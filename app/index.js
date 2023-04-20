@@ -25,8 +25,6 @@ export default function Page() {
     DataStore.query(User).then(setUsers);
   }, [])
   
-  console.log(users);
-  
   return (
     <View style={styles.container}>
       <Link href={'/newPost'}>New post</Link>

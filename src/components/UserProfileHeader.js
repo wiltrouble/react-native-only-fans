@@ -113,7 +113,7 @@ const UserProfileHeader = ({ user, isSubscribed, setIsSubscribed}) => {
           >
             {user.subscriptionPrice === 0
               ? "FOR FREE"
-              : `$${user.subscriptionPrice.toFixed(2)} / month`}
+              : `$${user.subscriptionPrice} / month`}
           </Text>
         </Pressable>
       </View>
