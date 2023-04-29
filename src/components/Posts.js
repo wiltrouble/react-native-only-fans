@@ -2,16 +2,24 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import React, { useEffect, useState } from "react";
 import { AntDesign, Feather } from "@expo/vector-icons";
-import { DataStore } from 'aws-amplify'
+import { DataStore, Storage } from 'aws-amplify'
 import { User } from "../models";
 
 const Posts = ({ post }) => {
 
   const [user, setUser] = useState()
+  const [imageIrui, setImageIrui] = useState()
 
   useEffect(() => {
     DataStore.query(User, post.userID).then(setUser)
   }, [])
+
+  useEffect(() => {
+    if( post.image ) {
+      Storage.get(post.image).then(setImageIrui)
+    }
+  }, [post.image])
+  
   
 
   return (
